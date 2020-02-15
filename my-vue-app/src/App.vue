@@ -1,13 +1,19 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    ad
+    <gam />
+
   </div>
 </template>
 
 <script>
+import gam from '@/components/gam.vue';
 export default {
-  name: 'App'
+  name: 'App',
+  components : {
+    gam,
+  },
+  
 }
 </script>
 
