@@ -1,6 +1,7 @@
 <template>
     <div class="game">
          <div @click="performMove(i+1)" class="box" v-for="(n, i) in 9" :key="n.id" :id=i+1 ref="myid"> </div>
+
     </div>
 </template>
 
@@ -44,9 +45,9 @@
                         this.pkt[1]=='x' && this.pkt[5]=='x' && this.pkt[9]=='x'||
                         this.pkt[7]=='x' && this.pkt[5]=='x' && this.pkt[3]=='x')
                         {
-                        console.log("Wygrywa White");//White win
-                        endGame=1;
-                            }
+                                alert("Wygrywa White");//White win
+                                endGame=1;
+                        }
                     else if(this.pkt[1]=='y' && this.pkt[2]=='y' && this.pkt[3]=='y'|| 
                         this.pkt[4]=='y' && this.pkt[5]=='y' && this.pkt[6]=='y'||
                         this.pkt[7]=='y' && this.pkt[8]=='y' && this.pkt[9]=='y'||
@@ -56,21 +57,11 @@
                         this.pkt[1]=='y' && this.pkt[5]=='y' && this.pkt[9]=='y'||
                         this.pkt[7]=='y' && this.pkt[5]=='y' && this.pkt[3]=='y')
                         {
-                        console.log("Wygrywa Black"); //Black Win
-                        endGame=1;
-                            }
+                                alert("Wygrywa Black"); //Black Win
+                                endGame=1;
+                        }
                 
                     }
-        },
-        Win(a){
-            if(this.player%2 === 0){
-                console.log('white');
-                }
-            else{
-                console.log('black');
-
-                }
-                 
         }
 
     }
