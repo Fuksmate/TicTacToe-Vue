@@ -20,6 +20,7 @@
         performMove(x) {
             if (this.player == 10){
                     alert("remis");
+                    endgame=1;
                 }
             if(endGame==1){
                 win(this.player);
