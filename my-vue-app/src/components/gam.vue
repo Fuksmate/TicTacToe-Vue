@@ -1,12 +1,12 @@
 <template>
-    <div class="game">
-         <div @click="performMove(i+1)" class="box" v-for="(n, i) in 9" :key="n.id" :id=i+1 ref="myid"> </div>
-
-    </div>
+  <div class="game">
+    <div @click="performMove(i+1)" class="box" v-for="(n, i) in 9" :key="n.id" :id=i+1 ref="myid"> </div>
+    <div class="victoryMessage">{{victoryMessage}}</div>
+  </div>
 </template>
 
 <script>
-  
+
  var endGame=0;
   export default {
     name: 'game',
@@ -15,6 +15,7 @@
             pkt:[
                 {nr: ''},
             ],
+              victoryMessage: "",
     } },
      methods: {
         performMove(x) {
@@ -36,8 +37,8 @@
                         this.pkt[x]='y';
                         this.player++
                     }
-                
-                    if(this.pkt[1]=='x' && this.pkt[2]=='x' && this.pkt[3]=='x'|| 
+
+                    if(this.pkt[1]=='x' && this.pkt[2]=='x' && this.pkt[3]=='x'||
                         this.pkt[4]=='x' && this.pkt[5]=='x' && this.pkt[6]=='x'||
                         this.pkt[7]=='x' && this.pkt[8]=='x' && this.pkt[9]=='x'||
                         this.pkt[3]=='x' && this.pkt[6]=='x' && this.pkt[9]=='x'||
@@ -46,10 +47,10 @@
                         this.pkt[1]=='x' && this.pkt[5]=='x' && this.pkt[9]=='x'||
                         this.pkt[7]=='x' && this.pkt[5]=='x' && this.pkt[3]=='x')
                         {
-                                alert("Wygrywa White");//White win
+                                this.victoryMessage = "Wygrał Biały/Win White";
                                 endGame=1;
                         }
-                    else if(this.pkt[1]=='y' && this.pkt[2]=='y' && this.pkt[3]=='y'|| 
+                    else if(this.pkt[1]=='y' && this.pkt[2]=='y' && this.pkt[3]=='y'||
                         this.pkt[4]=='y' && this.pkt[5]=='y' && this.pkt[6]=='y'||
                         this.pkt[7]=='y' && this.pkt[8]=='y' && this.pkt[9]=='y'||
                         this.pkt[3]=='y' && this.pkt[6]=='y' && this.pkt[9]=='y'||
@@ -58,38 +59,41 @@
                         this.pkt[1]=='y' && this.pkt[5]=='y' && this.pkt[9]=='y'||
                         this.pkt[7]=='y' && this.pkt[5]=='y' && this.pkt[3]=='y')
                         {
-                                alert("Wygrywa Black"); //Black Win
+                                this.victoryMessage = "Wygrał czarny/Win Black";
                                 endGame=1;
                         }
-                
+
                     }
         }
 
     }
-        
+
 }
 
-    
-     
-  
+
+
+
 </script>
 
 <style scoped>
+.victoryMessage{
+  margin: 0 auto;
+  font-size:26px;
+}
 .game{
-    width: 500px;
-    height: 500px;
-    margin:50px auto 0 auto;
-    background-color: #00ff99;
+  width: 500px;
+  height: 500px;
+  margin:50px auto 0 auto;
+  background-color: #808080;
 }
 .box{
-   
-    width: calc((100% / 3) - 2px );
-    height: calc((100% / 3) - 2px);
-      border: 1px solid black;
-       display: block;
-       float:left;
-       padding:0;
-       margin: 0;
+  width: calc((100% / 3) - 2px );
+  height: calc((100% / 3) - 2px);
+  border: 1px solid black;
+  display: block;
+  float:left;
+  padding:0;
+  margin: 0;
 }
 
 </style>

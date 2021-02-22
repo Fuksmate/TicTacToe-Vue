@@ -18,10 +18,6 @@ export default {
 </script>
 
 <style>
-body{
-  background-color: aquamarine;
-
-}
 .Tictac{
 text-align: center;
 }
